@@ -1,0 +1,67 @@
+---
+layout: default
+title: CV
+---
+{% assign f_name = site.data.profile | where: "field", "name" | first %}
+{% assign f_title = site.data.profile | where: "field", "title" | first %}
+{% assign f_photo = site.data.profile | where: "field", "photo" | first %}
+{% assign f_bio_1 = site.data.profile | where: "field", "bio_1" | first %}
+{% assign f_bio_2 = site.data.profile | where: "field", "bio_2" | first %}
+{% assign f_email = site.data.profile | where: "field", "email" | first %}
+{% assign f_twitter = site.data.profile | where: "field", "twitter" | first %}
+{% assign f_bluesky = site.data.profile | where: "field", "bluesky" | first %}
+{% assign f_scholar = site.data.profile | where: "field", "scholar" | first %}
+{% assign f_github = site.data.profile | where: "field", "github" | first %}
+{% assign f_linkedin = site.data.profile | where: "field", "linkedin" | first %}
+{% assign f_affiliation = site.data.profile | where: "field", "affiliation" | first %}
+{% assign f_department = site.data.profile | where: "field", "department" | first %}
+{% assign f_address = site.data.profile | where: "field", "address" | first %}
+{% assign f_phone = site.data.profile | where: "field", "phone" | first %}
+{% assign f_teaching_interests = site.data.profile | where: "field", "teaching_interests" | first %}
+{% assign f_advisors = site.data.profile | where: "field", "advisors" | first %}
+<h1>CV</h1>
+<h2>Contact</h2>
+<p>{{ f_name.value | escape }}<br>
+{% if f_department.value and f_department.value != "" %}{{ f_department.value | escape }}, {% endif %}{{ f_affiliation.value | escape }}<br>
+{% if f_address.value and f_address.value != "" %}{{ f_address.value | escape }}<br>{% endif %}
+<a href="mailto:{{ f_email.value | escape }}">{{ f_email.value | escape }}</a>{% if f_phone.value and f_phone.value != "" %} · {{ f_phone.value | escape }}{% endif %}</p>
+<p><a class="dl" href="cv.pdf">Download CV (PDF)</a></p>
+{% if site.data.employment.size > 0 %}
+<h2>Employment</h2>
+<dl class="tl">
+{% for r in site.data.employment %}<dt>{{ r.dates | escape }}</dt><dd>{{ r.position | escape }}{% if r.organization and r.organization != "" %}<small>{{ r.organization | escape }}</small>{% endif %}</dd>
+{% endfor %}
+</dl>
+{% endif %}
+{% if site.data.education.size > 0 %}
+<h2>Education</h2>
+<dl class="tl">
+{% for r in site.data.education %}<dt>{{ r.dates | escape }}</dt><dd>{{ r.degree | escape }}<small>{{ r.institution | escape }}{% if r.details and r.details != "" %} · {{ r.details | escape }}{% endif %}</small></dd>
+{% endfor %}
+</dl>
+{% endif %}
+{% if site.data.coursework.size > 0 %}
+<h2>Coursework</h2>
+<ul class="plain">{% for r in site.data.coursework %}<li>{{ r.course | escape }}</li>{% endfor %}</ul>
+{% endif %}
+{% if site.data.talks.size > 0 %}
+<h2>Presentations and workshops</h2>
+<dl class="tl">
+{% for r in site.data.talks %}<dt>{{ r.year | escape }}</dt><dd>{{ r.event | escape }}{% if r.location and r.location != "" %}<small>{{ r.location | escape }}</small>{% endif %}</dd>
+{% endfor %}
+</dl>
+{% endif %}
+{% if site.data.awards.size > 0 %}
+<h2>Grants and awards</h2>
+<dl class="tl">
+{% for r in site.data.awards %}<dt>{{ r.year | escape }}</dt><dd>{{ r.award | escape }}{% if r.organization and r.organization != "" %}<small>{{ r.organization | escape }}</small>{% endif %}</dd>
+{% endfor %}
+</dl>
+{% endif %}
+{% if site.data.skills.size > 0 %}
+<h2>Skills</h2>
+<dl class="tl">
+{% for r in site.data.skills %}<dt>{{ r.category | escape }}</dt><dd>{{ r.items | escape }}</dd>
+{% endfor %}
+</dl>
+{% endif %}

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{% assign f_name = site.data.profile | where: "field", "name" | first %}
+{% assign f_title = site.data.profile | where: "field", "title" | first %}
+{% assign f_photo = site.data.profile | where: "field", "photo" | first %}
+{% assign f_bio_1 = site.data.profile | where: "field", "bio_1" | first %}
+{% assign f_bio_2 = site.data.profile | where: "field", "bio_2" | first %}
+{% assign f_email = site.data.profile | where: "field", "email" | first %}
+{% assign f_twitter = site.data.profile | where: "field", "twitter" | first %}
+{% assign f_bluesky = site.data.profile | where: "field", "bluesky" | first %}
+{% assign f_scholar = site.data.profile | where: "field", "scholar" | first %}
+{% assign f_github = site.data.profile | where: "field", "github" | first %}
+{% assign f_linkedin = site.data.profile | where: "field", "linkedin" | first %}
+{% assign f_affiliation = site.data.profile | where: "field", "affiliation" | first %}
+{% assign f_department = site.data.profile | where: "field", "department" | first %}
+{% assign f_address = site.data.profile | where: "field", "address" | first %}
+{% assign f_phone = site.data.profile | where: "field", "phone" | first %}
+{% assign f_teaching_interests = site.data.profile | where: "field", "teaching_interests" | first %}
+{% assign f_advisors = site.data.profile | where: "field", "advisors" | first %}
+<h1>About</h1><p>{{ f_bio_1.value | escape }}</p><p>{{ f_bio_2.value | escape }}</p>{% if site.data.news.size > 0 %}
+<h2>News</h2>
+<dl class="tl">
+{% for r in site.data.news %}<dt>{{ r.date | escape }}</dt><dd>{{ r.text | escape }}</dd>
+{% endfor %}
+</dl>
+{% endif %}

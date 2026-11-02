@@ -1,0 +1,24 @@
+{% assign f_name = site.data.profile | where: "field", "name" | first %}
+{% assign f_title = site.data.profile | where: "field", "title" | first %}
+{% assign f_photo = site.data.profile | where: "field", "photo" | first %}
+{% assign f_bio_1 = site.data.profile | where: "field", "bio_1" | first %}
+{% assign f_bio_2 = site.data.profile | where: "field", "bio_2" | first %}
+{% assign f_email = site.data.profile | where: "field", "email" | first %}
+{% assign f_twitter = site.data.profile | where: "field", "twitter" | first %}
+{% assign f_bluesky = site.data.profile | where: "field", "bluesky" | first %}
+{% assign f_scholar = site.data.profile | where: "field", "scholar" | first %}
+{% assign f_github = site.data.profile | where: "field", "github" | first %}
+{% assign f_linkedin = site.data.profile | where: "field", "linkedin" | first %}
+{% assign f_affiliation = site.data.profile | where: "field", "affiliation" | first %}
+{% assign f_department = site.data.profile | where: "field", "department" | first %}
+{% assign f_address = site.data.profile | where: "field", "address" | first %}
+{% assign f_phone = site.data.profile | where: "field", "phone" | first %}
+{% assign f_teaching_interests = site.data.profile | where: "field", "teaching_interests" | first %}
+{% assign f_advisors = site.data.profile | where: "field", "advisors" | first %}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ f_name.value | escape }}</title><meta name="description" content="Academic website of {{ f_name.value | escape }}.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css"></head>
+<body><aside><img src="{{ f_photo.value }}" alt="Portrait of {{ f_name.value | escape }}"><a class="nm" href="index.html">{{ f_name.value | escape }}</a><p>PhD candidate in Economics<br>{{ f_affiliation.value | escape }}</p><ul class="links">
+{% include link.html value=f_email.value prefix="mailto:" label="Email" %}{% include link.html value=f_twitter.value prefix="" label="Twitter / X" %}{% include link.html value=f_bluesky.value prefix="" label="Bluesky" %}{% include link.html value=f_scholar.value prefix="" label="Google Scholar" %}{% include link.html value=f_github.value prefix="" label="GitHub" %}{% include link.html value=f_linkedin.value prefix="" label="LinkedIn" %}
+</ul><nav aria-label="Main"><a href="index.html"{% if page.name == "index.html" %} aria-current="page"{% endif %}>Home</a><a href="research.html"{% if page.name == "research.html" %} aria-current="page"{% endif %}>Research</a><a href="cv.html"{% if page.name == "cv.html" %} aria-current="page"{% endif %}>CV</a><a href="teaching.html"{% if page.name == "teaching.html" %} aria-current="page"{% endif %}>Teaching</a></nav></aside><main>{{ content }}<footer class="site"><div style="text-align:center;padding:28px;font-size:.9rem;color:var(--mut)">&copy; {{ site.time | date: "%Y" }} {{ f_name.value | escape }}</div></footer></main></body></html>

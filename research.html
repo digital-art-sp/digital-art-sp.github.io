@@ -1,0 +1,31 @@
+---
+layout: default
+title: Research
+---
+{% assign f_name = site.data.profile | where: "field", "name" | first %}
+{% assign f_title = site.data.profile | where: "field", "title" | first %}
+{% assign f_photo = site.data.profile | where: "field", "photo" | first %}
+{% assign f_bio_1 = site.data.profile | where: "field", "bio_1" | first %}
+{% assign f_bio_2 = site.data.profile | where: "field", "bio_2" | first %}
+{% assign f_email = site.data.profile | where: "field", "email" | first %}
+{% assign f_twitter = site.data.profile | where: "field", "twitter" | first %}
+{% assign f_bluesky = site.data.profile | where: "field", "bluesky" | first %}
+{% assign f_scholar = site.data.profile | where: "field", "scholar" | first %}
+{% assign f_github = site.data.profile | where: "field", "github" | first %}
+{% assign f_linkedin = site.data.profile | where: "field", "linkedin" | first %}
+{% assign f_affiliation = site.data.profile | where: "field", "affiliation" | first %}
+{% assign f_department = site.data.profile | where: "field", "department" | first %}
+{% assign f_address = site.data.profile | where: "field", "address" | first %}
+{% assign f_phone = site.data.profile | where: "field", "phone" | first %}
+{% assign f_teaching_interests = site.data.profile | where: "field", "teaching_interests" | first %}
+{% assign f_advisors = site.data.profile | where: "field", "advisors" | first %}
+<h1>Research</h1>
+{% if site.data.research_interests.size > 0 %}
+<h2>Research interests</h2>
+<ul class="plain">{% for r in site.data.research_interests %}<li>{{ r.interest | escape }}</li>{% endfor %}</ul>
+{% endif %}
+{% include papers.html section="wip" heading="Work in progress" %}
+{% include papers.html section="working" heading="Working papers" %}
+{% include papers.html section="published" heading="Published papers" %}
+{% include papers.html section="dissertation" heading="PhD dissertation" %}
+{% include papers.html section="other" heading="Other" %}

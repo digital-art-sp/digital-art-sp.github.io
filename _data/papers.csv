@@ -1,0 +1,7 @@
+section,title,coauthors,details,abstract,pdf,code,slides
+wip,Title of a project in progress,Coauthor Name,Data collection stage,,,,
+wip,Another project idea,,Early stage,,,,
+working,Title of a working paper,Coauthor Name,2026,"Write two or three sentences: the question you ask, how you answer it, and your main finding.",files/paper.pdf,https://github.com/yourusername/paper-code,files/slides.pdf
+published,Title of a published paper,Coauthor Name,"Journal Name, Volume(Issue), 2025",,https://doi.org/your-doi,,
+dissertation,Dissertation (in progress),,"Your University, advisor: Advisor One",,,,
+other,Policy brief or data set,,Short description and year,,https://example.org,,

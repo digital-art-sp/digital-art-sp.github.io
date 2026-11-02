@@ -1,0 +1,7 @@
+# Site settings. Most clients never need to edit this file.
+title: Your Name
+description: Academic website of Your Name, PhD in Economics
+encoding: bom|utf-8
+exclude:
+  - README.md
+  - HOW-TO-EDIT.md

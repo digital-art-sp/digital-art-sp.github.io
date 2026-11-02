@@ -1,0 +1,12 @@
+{% assign items = site.data.papers | where: "section", include.section %}
+{% if items.size > 0 %}
+<h2>{{ include.heading }}</h2>
+{% for r in items %}
+<article class="item">
+<h3>{{ r.title | escape }}</h3>
+{% if r.coauthors or r.details %}<p class="meta">{% if r.coauthors and r.coauthors != "" %}with {{ r.coauthors | escape }}{% endif %}{% if r.details and r.details != "" %}{% if r.coauthors and r.coauthors != "" %} · {% endif %}{{ r.details | escape }}{% endif %}</p>{% endif %}
+{% if r.abstract and r.abstract != "" %}<details><summary>Abstract</summary><p>{{ r.abstract | escape }}</p></details>{% endif %}
+<p class="btns">{% if r.pdf and r.pdf != "" %}<a href="{{ r.pdf | escape }}">PDF</a>{% endif %}{% if r.code and r.code != "" %}<a href="{{ r.code | escape }}">Code</a>{% endif %}{% if r.slides and r.slides != "" %}<a href="{{ r.slides | escape }}">Slides</a>{% endif %}</p>
+</article>
+{% endfor %}
+{% endif %}

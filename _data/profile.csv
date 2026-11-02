@@ -1,0 +1,17 @@
+field,value
+name,Your Name
+title,PhD Student in Economics
+affiliation,Your University
+department,Department of Economics
+address,"123 Academic Way, City, ST 12345"
+phone,
+email,you@university.edu
+twitter,https://twitter.com/yourhandle
+bluesky,https://bsky.app/profile/yourhandle
+scholar,https://scholar.google.com/citations?user=YOURID
+github,https://github.com/yourusername
+linkedin,https://www.linkedin.com/in/yourname
+photo,assets/headshot.svg
+bio_1,I am a PhD student in Economics at Your University. My research fields are labor economics and public economics.
+bio_2,My current work uses quasi-experimental methods to study how public policy affects workers.
+teaching_interests,"Principles of Economics, Econometrics and Labor Economics."
